@@ -50,7 +50,7 @@ body {
 #aim {
       width: 200px;
       height: 200px;
-      background-color: black;
+      background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);;
       color: white;
       border-radius: 50%;
       display: inline-block;
@@ -68,7 +68,7 @@ body {
 #start {
     width: 200px;
     height: 200px;
-    background-color: white;
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
     color: black;
     border-radius: 50%;
     display: inline-block;
@@ -85,7 +85,7 @@ body {
 #compare {
     width: 200px;
     height: 200px;
-    background-color: black;
+    background: linear-gradient(to left, #ef32d9, #89fffd);
     color: white;
     border-radius: 50%;
     display: inline-block;
@@ -116,11 +116,30 @@ body {
     margin-bottom: 0;
 }
 
+
+
+
+.play-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
 .dog-card {
     border: black 1px solid;
-    width: 250px;
-    margin: 10px;
-    padding: 10px;
+    border-radius: 5%;
+    background: linear-gradient(to left, #d38312, #a83279);
+    width: 300px;
+    margin: 0px 40px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    
 }
 
 
@@ -128,18 +147,19 @@ body {
 .dog-card li {
     list-style-type: none;
     text-align: center;
+    padding-right: 30px;
+
 }
 
-#player-cards, #comp-cards {
+
+
+#card-titles {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+    justify-content: space-between;
+    width: 500px;
+    margin-bottom: 0;
 
-.card-container-title {
-    text-align: center;
 }
-
 
 #hand {
     display: flex;
