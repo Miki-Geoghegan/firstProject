@@ -36,12 +36,8 @@ class TopTrumpsGame {
   
   endGame() {
     if (this.shuffledCardsPlayer.length === this.cards.length) {
-      console.log(this.shuffledCardsPlayer.length, this.cards.length)
-      console.log('game over')
       return true;
-    } else {
-      console.log(this.shuffledCardsPlayer.length, this.cards.length)
-      console.log('game not over')
+    } else if (this.shuffledCardsComp.length === this.cards.length) {
       return false;
     }
   }

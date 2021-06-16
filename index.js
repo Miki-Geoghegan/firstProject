@@ -63,8 +63,9 @@ const currentHand = new CurrentHand();
 
 
     if (topTrumpsGame.endGame()) {
-      document.getElementById('player-hand').innerHTML = `<p>Hello</p>`
-      document.getElementById('player-hand').innerHTML = ``
+      document.getElementById('player-hand').innerHTML = `<h3 class = "winner">YOU WON THE GAME></h3>`
+    } else {
+      document.getElementById('comp-hand').innerHTML = `<h3 class = "game-over"GAME OVER, the computer has won!></h3>`
     }
 
   }, 3000)
