@@ -22,23 +22,56 @@ const cards = [
   ];
 
   
-// function choose a characteristic with a click (see ul onclick)
-// function to add blue to the clicked target when an event (a click) occurs
+// linking with the classes in memory.js file
 
 const topTrumpsGame = new TopTrumpsGame(cards);
 const currentHand = new CurrentHand();
 
+// function choose a characteristic with a click (see ul onclick)
+// function to add blue to the clicked target when an event (a click) occurs
 
   function dogCharacteristicClicked(event) {
     console.log("a pickedPlayerCard ability has been clicked", event.target.textContent);
-    console.log(event.target.className);
-    //console.log(event.target.parentNode.dataset);
     event.target.style.color = 'blue';
 
-    currentHand.pickedCharacteristic = event.target.className
-    currentHand.compareCards()
-    //console.log(currentHand.pickedCharacteristic);
+// calling the populateCompHand (current card) function when characteristic clicked and filling this.pickedCompCard with this card
+// will only occur once clicked, previously will be ?
+    populateCompHand(currentHand.pickedCompCard)
 
+// setting a timer for the click event
+    setTimeout(function() {
+
+// making the picked characteristic in memory.js the class name of the target of the click (characteristic clicked i.e. 'playfulness')
+    currentHand.pickedCharacteristic = event.target.className
+
+// calling the compareCards function in memory.js with shuffledCardsPlayer and Comp so that it can access the shuffled cards packs
+    currentHand.compareCards(topTrumpsGame.shuffledCardsPlayer, topTrumpsGame.shuffledCardsComp)
+
+  // once timeout, pick another player card with pickPlayerCard function (i[0]), need to access shuffledCardsPlayer
+    currentHand.pickPlayerCard(topTrumpsGame.shuffledCardsPlayer)
+ 
+    // call populate the current player hand function and pass it to pickedPlayCard
+    populatePlayerHand(currentHand.pickedPlayCard);
+
+    // once timer runs out, questionmark with flip back around
+    currentHand.pickCompCard(topTrumpsGame.shuffledCardsComp)
+    displayQuestionMark();
+
+    document.getElementById('user-cards').innerHTML = topTrumpsGame.shuffledCardsPlayer.length;
+    document.getElementById('computer-cards').innerHTML = topTrumpsGame.shuffledCardsComp.length;
+    document.getElementById('tied-cards').innerHTML = currentHand.tiedCards.length;
+
+
+    if (topTrumpsGame.endGame()) {
+      document.getElementById('player-hand').innerHTML = `<p>Hello</p>`
+      document.getElementById('player-hand').innerHTML = ``
+    }
+
+  }, 3000)
+
+
+
+  
   }
 
 // calling classes from previous page to start when page is loaded 
@@ -50,55 +83,24 @@ const currentHand = new CurrentHand();
     topTrumpsGame.shuffleCards()
     topTrumpsGame.splitCards()
 
-    // next will populate player cards with the populate cards function for player, then computer by calling shuffledCardsPlayer from class TopTrumpsGame, then same for shuffledCardsComp
-    
-    populateCards(topTrumpsGame.shuffledCardsPlayer, 'player-cards');
-    populateCards(topTrumpsGame.shuffledCardsComp, 'comp-cards');
-    
     // calling pickPlayerCard function below (will take the first card from shuffledplayers deck) and same for comp
-    // unclear why topTrumpsGame.ShuffledCardsPlayer/Comp needs to be included?
+    // needs to be able to access shuffledCardsPlayer?
 
     currentHand.pickPlayerCard(topTrumpsGame.shuffledCardsPlayer);
     currentHand.pickCompCard(topTrumpsGame.shuffledCardsComp);
    
-   // calling function populatePlayer/CompHand below and linking this so current pickedPlayCard in class CurrentHand in memory is the card that populates the HTML
+   // calling function populatePlayer below and linking this so current pickedPlayCard in class CurrentHand in memory.js is the card that populates the HTML
 
-    populatePlayerHand(currentHand.pickedPlayCard, currentHand.pickCompCard)
-    populateCompHand(currentHand.pickedCompCard)
-    console.log(currentHand.pickedPlayCard, currentHand.pickedCompCard);
-
-
-
+    populatePlayerHand(currentHand.pickedPlayCard)
+    displayQuestionMark()
 
   });
 
-  // function to populatecards to be called on #player-cards and #comp-cards by adding those as arguments, also assigning to a specific id
-  function populateCards(cards, parent) {
-    let html = '';
-    cards.forEach((pickedPlayerCard) => {
-      html += `
-      <div class = "dog-class">
-      <h1>${pickedPlayerCard.name}</h1>
-      <img src="./Images/${pickedPlayerCard.img}" alt="${pickedPlayerCard.name}" height="150px">
-      <ul onclick = "dogCharacteristicClicked(event)">
-        <li>Playfulness: <span  class="playfulness"> ${pickedPlayerCard.playfulness} </span></li>
-        <li>Energy: <span  class="energy"> ${pickedPlayerCard.energy} </span></li>
-        <li>Trainability: <span  class="trainability"> ${pickedPlayerCard.trainability} </span></li>
-        <li>Intelligence: <span  class="intelligence"> ${pickedPlayerCard.intelligence} </span></li>
-        <li>Size: <span  class="size"> ${pickedPlayerCard.size} </span></li>
-        <li>Dog-friendly: <span  class="dog-friendly"> ${pickedPlayerCard.dogFriendly} </span></li>
-        <li>Bark-tendancy: <span  class="bark-tendancy"> ${pickedPlayerCard.barkTendancy} </span></li>
-      </ul>
-    </div>
-      `;
-    });
-  
-    document.getElementById(parent).innerHTML = html;
-  } 
 
 // function to populatePlayerHand with a specific card from class pickedPlayerCard (first card of shuffled player deck)
 
   function populatePlayerHand(pickedPlayerCard) {
+    console.log(pickedPlayerCard)
    document.getElementById('player-hand').innerHTML = `
    <div class = "dog-card">
    <h1>${pickedPlayerCard.name}</h1>
@@ -109,14 +111,23 @@ const currentHand = new CurrentHand();
      <li class = "trainability">Trainability: ${pickedPlayerCard.trainability}</li>
      <li class = "intelligence">Intelligence: ${pickedPlayerCard.intelligence}</li>
      <li class = "size">Size: ${pickedPlayerCard.size}</li>
-     <li class = "dog-friendly">Dog-friendly: ${pickedPlayerCard.dogFriendly}</li>
-     <li class = "bark-tendancy">Bark-tendancy: ${pickedPlayerCard.barkTendancy}</li>
+     <li class = "dogFriendly">Dog-friendly: ${pickedPlayerCard.dogFriendly}</li>
+     <li class = "barkTendancy">Bark-tendancy: ${pickedPlayerCard.barkTendancy}</li>
    </ul>
  </div>
  `
   }
 
-// same as above but for comp, calling the pickedCompCard from class currentHand
+// Start by displaying questionmark before clicked and comp hand is shown
+
+function displayQuestionMark() {
+  document.getElementById('comp-hand').innerHTML = `
+  <div class = "dog-card">
+  <img src="./Images/questionMark.png" alt = "questionMarkImg"/>
+  </div>
+  `
+}
+
 
   function populateCompHand(pickedCompCard) {
     document.getElementById('comp-hand').innerHTML = `

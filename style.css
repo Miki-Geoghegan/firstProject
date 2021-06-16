@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('./Images/dogBackground.jpg') no-repeat;
+    background: linear-gradient(to right, #5f2c82, #49a09d);
+    /*background: url('./Images/dogBackground.jpg') no-repeat;*/
     z-index: -1;
     background-size: 100%;
     font-family: 'Roboto', Arial, sans-serif;

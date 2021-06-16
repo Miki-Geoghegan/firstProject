@@ -1,0 +1,55 @@
+  // function to populatecards to be called on #player-cards and #comp-cards by adding those as arguments, also assigning to a specific id
+  
+  function populateCards(cards, parent) {
+    let html = '';
+    cards.forEach((pickedPlayerCard) => {
+      html += `
+      <div class = "dog-class">
+      <h1>${pickedPlayerCard.name}</h1>
+      <img src="./Images/${pickedPlayerCard.img}" alt="${pickedPlayerCard.name}" height="150px">
+      <ul onclick = "dogCharacteristicClicked(event)">
+        <li>Playfulness: <span  class="playfulness"> ${pickedPlayerCard.playfulness} </span></li>
+        <li>Energy: <span  class="energy"> ${pickedPlayerCard.energy} </span></li>
+        <li>Trainability: <span  class="trainability"> ${pickedPlayerCard.trainability} </span></li>
+        <li>Intelligence: <span  class="intelligence"> ${pickedPlayerCard.intelligence} </span></li>
+        <li>Size: <span  class="size"> ${pickedPlayerCard.size} </span></li>
+        <li>Dog-friendly: <span  class="dog-friendly"> ${pickedPlayerCard.dogFriendly} </span></li>
+        <li>Bark-tendancy: <span  class="bark-tendancy"> ${pickedPlayerCard.barkTendancy} </span></li>
+      </ul>
+    </div>
+      `;
+    });
+  
+    document.getElementById(parent).innerHTML = html;
+  } 
+  
+  
+    checkIfFinished() {
+      let correctPairs = this.pairsGuessed;
+      if (correctPairs < this.cards.length / 2) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+
+
+
+
+    // next will populate player cards with the populate cards function for player, then computer by calling shuffledCardsPlayer from class TopTrumpsGame, then same for shuffledCardsComp
+   /* 
+    populateCards(topTrumpsGame.shuffledCardsPlayer, 'player-cards');
+    populateCards(topTrumpsGame.shuffledCardsComp, 'comp-cards');
+    */ 
+
+
+
+    
+
+    function changeColor() {
+    document.getElementsByTagName('li').style.color = 'purple';
+    return false;
+}  
+
+  document.getElementById('player-cards').onclick = changeColor();
