@@ -37,7 +37,7 @@ class TopTrumpsGame {
   endGame() {
     if (this.shuffledCardsPlayer.length === this.cards.length) {
       return true;
-    } else if (this.shuffledCardsComp.length === this.cards.length) {
+    } else {
       return false;
     }
   }
