@@ -66,18 +66,23 @@ const currentHand = new CurrentHand();
     
         if (topTrumpsGame.endGame()) {
             document.getElementById('player-hand').innerHTML = `<h3 class = "winner">YOU WON THE GAME</h3>`
+            document.getElementById('comp-hand').innerHTML = ``;
+            document.getElementById('play-title').innerHTML = `<button id = "reset-button">Reset</button>`;
+            document.getElementById('card-titles').innerHTML = ``
+            document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
           }
     
       } else {
-        document.getElementById('comp-hand').innerHTML = `<h3 class = "game-over">GAME OVER, the computer has won!</h3>`
+        document.getElementById('comp-hand').innerHTML = `<h3 class = "game-over">GAME OVER</h3>`
         document.getElementById('player-hand').innerHTML = ``;
+        document.getElementById('play-title').innerHTML = `<button id = "reset-button">Reset</button>`;
+        document.getElementById('card-titles').innerHTML = ``
+        document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
 
       }}, 3000)
       
     }
 
-
-document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
 
 
 // calling classes from previous page to start when page is loaded 

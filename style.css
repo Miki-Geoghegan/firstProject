@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, #5f2c82, #49a09d);
-    /*background: url('./Images/dogBackground.jpg') no-repeat;*/
     z-index: -1;
     background-size: 100%;
     font-family: 'Roboto', Arial, sans-serif;
@@ -10,14 +9,15 @@ body {
 
 
 #title {
-      font-size: 70px;
-      background-color: white;
-      border-radius: 50%;
-      padding-bottom: 0;
-      margin: 20px 400px 0px 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    font-size: 70px;
+    background-color: white;
+    border-radius: 50%;
+    border: black 1px solid;
+    padding-bottom: 0;
+    margin: 20px 400px 0px 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #all-minus-title {
@@ -40,6 +40,7 @@ body {
     width: 150px;
     height: 140px;
     background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);;
+    border: black 1px solid;
     color: black;
     border-radius: 50%;
     display: inline-block;
@@ -54,6 +55,7 @@ body {
    padding-bottom: 0;
    margin-bottom: 0;
    font-size: 15px;
+   margin-top: 0;
 }
 
 #aim p {
@@ -66,6 +68,7 @@ body {
     width: 150px;
     height: 140px;
     background: linear-gradient(to left, #ef32d9, #89fffd);
+    border: black 1px solid;
     color: white;
     border-radius: 50%;
     display: inline-block;
@@ -91,6 +94,7 @@ body {
     width: 150px;
     height: 140px;
     background: linear-gradient(to right, #fc5c7d, #6a82fb);
+    border: black 1px solid;
     color: black;
     border-radius: 50%;
     display: inline-block;
@@ -118,6 +122,7 @@ body {
     width: 150px;
     height: 140px;
     background: linear-gradient(to right, #03001e, #7303c0, #ec38bc, #fdeff9);
+    border: black 1px solid;
     color: white;
     border-radius: 50%;
     display: inline-block;
@@ -147,6 +152,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
+    margin: 0;
 
 }
 
@@ -155,7 +162,6 @@ body {
     border-radius: 5%;
     background: linear-gradient(to left, #d38312, #a83279);
     width: 300px;
-    margin: 0px;
     padding: 0px;
     display: flex;
     flex-direction: column;
@@ -172,33 +178,48 @@ body {
 
 }
 
+.dog-card img {
+    border: white 1px solid;
+    border-radius: 5%;
+}
+
 
 #card-titles {
     display: flex;
     justify-content: space-between;
     width: 500px;
-    margin-bottom: 0;
-
+    margin: 0;
+    padding: 0;
 }
 
 #hand {
     display: flex;
 }
 
-
-
-/*
-  #score {
-
-  }
-
-#player-cards li {
-
+.winner, .game-over {
+    font-size: 100px;
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    margin: 0;
+    padding: 0;
 }
-  &:hover {
-    background-color: lighten(black, 10%);
-    cursor: pointer;
-    cursor: hand;
-  }
 
-*/
+
+
+
+#reset-button {
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 5%;
+    padding: 0;
+    margin: 20px 500px 20px 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
