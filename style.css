@@ -8,83 +8,64 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
 }
 
-#rules {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-}
 
-#rules h1 {
+#title {
       font-size: 70px;
       background-color: white;
-      width: 550px;
       border-radius: 50%;
-      display: inline-block;
-      margin-left: 470px;
       padding-bottom: 0;
-      margin-bottom: 5px;
+      margin: 20px 400px 0px 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 }
 
-#rules h2 {
-      font-size: 30px;
-      color: white;
-      background-color: black;
-      width: 250px;
-      border-radius: 50%;
-      display: inline-block;
-      margin-left: 625px;
+#all-minus-title {
+    display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 #game-aim {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        align-content: center;
-        text-align: center;
-        padding: 50px 70px 50px 50px;
-        margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: center;
+    text-align: center;
+    border: black solid 3px;
+    padding: 10px;
 }
 
 #aim {
-      width: 200px;
-      height: 200px;
-      background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);;
-      color: white;
-      border-radius: 50%;
-      display: inline-block;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-}
-
-#aim h3 {
-      padding-bottom: 0;
-      margin-bottom: 0;
-}
-
-#start {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);;
     color: black;
     border-radius: 50%;
     display: inline-block;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 5px;
+
 }
 
-#start h3 {
+#aim h3 {
+   padding-bottom: 0;
+   margin-bottom: 0;
+   font-size: 15px;
+}
+
+#aim p {
     padding-bottom: 0;
     margin-bottom: 0;
+    font-size: 12px;
 }
 
-#compare {
-    width: 200px;
-    height: 200px;
+#start {
+    width: 150px;
+    height: 150px;
     background: linear-gradient(to left, #ef32d9, #89fffd);
     color: white;
     border-radius: 50%;
@@ -92,18 +73,53 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 5px;
+}
+
+#start h3 {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+#start p {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+#compare {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(to right, #fc5c7d, #6a82fb);
+    color: black;
+    border-radius: 50%;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5px;
 }
 
 #compare h3 {
     padding-bottom: 0;
     margin-bottom: 0;
+    font-size: 15px;
+}
+
+#compare p {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    width: 140px;
+    padding-left: 5px;
 }
 
 #win {
-    width: 200px;
-    height: 200px;
-    background-color: white;
-    color: black;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(to right, #03001e, #7303c0, #ec38bc, #fdeff9);
+    color: white;
     border-radius: 50%;
     display: inline-block;
     display: flex;
@@ -114,8 +130,16 @@ body {
 #win h3 {
     padding-bottom: 0;
     margin-bottom: 0;
+    font-size: 15px;
 }
 
+#win p {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    width: 130px;
+    padding-left: 10px;
+}
 
 
 
@@ -126,14 +150,12 @@ body {
 
 }
 
-
-
 .dog-card {
     border: black 1px solid;
     border-radius: 5%;
     background: linear-gradient(to left, #d38312, #a83279);
     width: 300px;
-    margin: 0px 40px;
+    margin: 0px;
     padding: 0px;
     display: flex;
     flex-direction: column;

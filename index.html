@@ -8,38 +8,37 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id = "mainSection">
-      <div id = "rules">
-        <h1>TOP TRUMPS</h1>
-        <h2>How To Play</h2>
-      <div id = "game-aim">
-        <div id = "aim">
-          <h3>Aim of the game:</h3>
-          <p>To win all of the cards</p>
+    <div id = "all">
+      <h1 id = "title">TOP TRUMPS</h1>
+      <div id = "all-minus-title">
+        <div id = "game-aim">
+          <div id = "aim">
+            <h3>Aim of the game:</h3>
+            <p>To win all of the cards</p>
+          </div>
+          <div id = "start">
+            <h3>Start the game:</h3>
+            <p>click the characteristic you think will beat your opponent</p>
+          </div>
+          <div id = "compare">
+            <h3>Compare cards:</h3>
+            <p>Can you beat it? Click your opponent's card to see who has won</p>
+          </div>
+          <div id = "win">
+            <h3>Winner:</h3>
+            <p>The first person to hold all the cards wins!</p>
+          </div>
         </div>
-        <div id = "start">
-          <h3>Start the game:</h3>
-          <p>click the characteristic you think will beat your opponent</p>
-        </div>
-        <div id = "compare">
-          <h3>Compare cards:</h3>
-          <p>Can you beat it? Click your opponent's card to see who has won</p>
-        </div>
-        <div id = "win">
-          <h3>Winner:</h3>
-          <p>The first person to hold all the cards wins!</p>
-        </div>
-      </div>
-      </div>
-      <div class = "play-section">
-        <h2>Play The Game</h2>
-        <div id = "card-titles">
-          <h3>Player cards</h3>
-          <h3>Computer cards</h3>
-        </div>
-        <div id = "hand">
-          <div id = "player-hand"></div>
-          <div id = "comp-hand"></div>
+        <div class = "play-section">
+          <h2>Play The Game</h2>
+          <div id = "card-titles">
+            <h3>Player cards</h3>
+            <h3>Computer cards</h3>
+          </div>
+          <div id = "hand">
+            <div id = "player-hand"></div>
+            <div id = "comp-hand"></div>
+          </div>
         </div>
         <div id="score">
           <h3>Score</h3>
@@ -49,12 +48,11 @@
             <p>Tied cards: <span id="tied-cards">0</span></p>
           </div>
         </div>
-        <div>
-          <button id = "reset-button">Reset</button>
         </div>
       </div>
-      <script type="text/javascript" src="memory.js"></script>
-      <script type="text/javascript" src="index.js"></script>
+      <button id = "reset-button">Reset</button>
     </div>
+    <script type="text/javascript" src="memory.js"></script>
+    <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
