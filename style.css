@@ -33,13 +33,12 @@ body {
     align-items: flex-start;
     align-content: center;
     text-align: center;
-    border: black solid 3px;
-    padding: 10px;
+    padding: 0 10px;
 }
 
 #aim {
     width: 150px;
-    height: 150px;
+    height: 140px;
     background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);;
     color: black;
     border-radius: 50%;
@@ -65,7 +64,7 @@ body {
 
 #start {
     width: 150px;
-    height: 150px;
+    height: 140px;
     background: linear-gradient(to left, #ef32d9, #89fffd);
     color: white;
     border-radius: 50%;
@@ -90,7 +89,7 @@ body {
 
 #compare {
     width: 150px;
-    height: 150px;
+    height: 140px;
     background: linear-gradient(to right, #fc5c7d, #6a82fb);
     color: black;
     border-radius: 50%;
@@ -117,7 +116,7 @@ body {
 
 #win {
     width: 150px;
-    height: 150px;
+    height: 140px;
     background: linear-gradient(to right, #03001e, #7303c0, #ec38bc, #fdeff9);
     color: white;
     border-radius: 50%;
@@ -131,6 +130,7 @@ body {
     padding-bottom: 0;
     margin-bottom: 0;
     font-size: 15px;
+    margin-top: 0;
 }
 
 #win p {
@@ -161,10 +161,9 @@ body {
     flex-direction: column;
     align-items: center;
     align-content: center;
+    margin: 0 40px;
     
 }
-
-
 
 .dog-card li {
     list-style-type: none;
@@ -172,7 +171,6 @@ body {
     padding-right: 30px;
 
 }
-
 
 
 #card-titles {
