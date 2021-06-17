@@ -39,7 +39,7 @@ body {
 #aim {
     width: 150px;
     height: 140px;
-    background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);;
+    background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);
     border: black 1px solid;
     color: black;
     border-radius: 50%;
@@ -147,14 +147,30 @@ body {
 }
 
 
-
 .play-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0;
     margin: 0;
+    max-width: 60%;
 
+}
+
+#play-title {
+    padding-left: 45px;
+}
+
+#card-titles {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    margin-left: 80px;
+    padding: 0;
+}
+
+#hand {
+    display: flex;
 }
 
 .dog-card {
@@ -167,7 +183,7 @@ body {
     flex-direction: column;
     align-items: center;
     align-content: center;
-    margin: 0 40px;
+    margin-left: 100px;
     
 }
 
@@ -175,7 +191,11 @@ body {
     list-style-type: none;
     text-align: center;
     padding-right: 30px;
+}
 
+.dog-card li:hover {
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .dog-card img {
@@ -183,20 +203,32 @@ body {
     border-radius: 5%;
 }
 
-
-#card-titles {
+.question-card {
+    border: black 1px solid;
+    border-radius: 5%;
+    background: linear-gradient(to left, #d38312, #a83279);
+    width: 300px;
     display: flex;
-    justify-content: space-between;
-    width: 500px;
-    margin: 0;
-    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin: 0 40px;
+    padding: 95px 0; 
 }
 
-#hand {
-    display: flex;
+#score {
+    font-size: 20px;
+    border: black 1px solid;
+    background: linear-gradient(to top, #2980b9, #6dd5fa, #ffffff);
+    padding: 10px;
+    margin-left: 0;
+    border-radius: 5%;
+    margin-top: 120px;
+
 }
 
-.winner, .game-over {
+
+.winner {
     font-size: 100px;
     background-color: #f3ec78;
     background-image: linear-gradient(45deg, #f3ec78, #af4261);
@@ -210,14 +242,27 @@ body {
 }
 
 
+.game-over {
+    font-size: 100px;
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    margin: 0;
+    padding: 0;
+}
 
 
 #reset-button {
     font-size: 30px;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     border-radius: 5%;
-    padding: 0;
+    border: 1px solid black;
+    padding: 20px;
     margin: 20px 500px 20px 500px;
     display: flex;
     justify-content: center;

@@ -22,20 +22,20 @@ const cards = [
   ];
 
   
-// linking with the classes in memory.js file
+  // linking with the classes in memory.js file
 
-const topTrumpsGame = new TopTrumpsGame(cards);
-const currentHand = new CurrentHand();
+  const topTrumpsGame = new TopTrumpsGame(cards);
+  const currentHand = new CurrentHand();
 
-// function choose a characteristic with a click (see ul onclick)
-// function to add blue to the clicked target when an event (a click) occurs
+  // function choose a characteristic with a click (see ul onclick)
+  // function to add blue to the clicked target when an event (a click) occurs
 
   function dogCharacteristicClicked(event) {
     console.log("a pickedPlayerCard ability has been clicked", event.target.textContent);
-    event.target.style.color = 'blue';
+    event.target.style.color = 'white';
 
-// calling the populateCompHand (current card) function when characteristic clicked and filling this.pickedCompCard with this card
-// will only occur once clicked, previously will be ?
+  // calling the populateCompHand (current card) function when characteristic clicked and filling this.pickedCompCard with this card
+  // will only occur once clicked, previously will be ?
  
       populateCompHand(currentHand.pickedCompCard)
 
@@ -64,13 +64,14 @@ const currentHand = new CurrentHand();
         document.getElementById('computer-cards').innerHTML = topTrumpsGame.shuffledCardsComp.length;
         document.getElementById('tied-cards').innerHTML = currentHand.tiedCards.length;
     
-        if (topTrumpsGame.endGame()) {
-            document.getElementById('player-hand').innerHTML = `<h3 class = "winner">YOU WON THE GAME</h3>`
-            document.getElementById('comp-hand').innerHTML = ``;
-            document.getElementById('play-title').innerHTML = `<button id = "reset-button">Reset</button>`;
-            document.getElementById('card-titles').innerHTML = ``
-            document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
-          }
+      if (topTrumpsGame.endGame()) {
+          document.getElementById('player-hand').innerHTML = ``
+          document.getElementById('comp-hand').innerHTML = ``;
+          document.getElementById('hand').innerHTML = `<h3 class = "winner">YOU WON THE GAME</h3>`
+          document.getElementById('play-title').innerHTML = `<button id = "reset-button">Reset</button>`;
+          document.getElementById('card-titles').innerHTML = ``
+          document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
+        }
     
       } else {
         document.getElementById('comp-hand').innerHTML = `<h3 class = "game-over">GAME OVER</h3>`
@@ -85,7 +86,7 @@ const currentHand = new CurrentHand();
 
 
 
-// calling classes from previous page to start when page is loaded 
+  // calling classes from previous page to start when page is loaded 
 
   window.addEventListener('load', (event) => {
     console.log('TopTrumpsGame is loaded');
@@ -108,7 +109,7 @@ const currentHand = new CurrentHand();
   });
 
 
-// function to populatePlayerHand with a specific card from class pickedPlayerCard (first card of shuffled player deck)
+  // function to populatePlayerHand with a specific card from class pickedPlayerCard (first card of shuffled player deck)
 
   function populatePlayerHand(pickedPlayerCard) {
     console.log(pickedPlayerCard)
@@ -129,15 +130,15 @@ const currentHand = new CurrentHand();
  `
   }
 
-// Start by displaying questionmark before clicked and comp hand is shown
+  // Start by displaying questionmark before clicked and comp hand is shown
 
-function displayQuestionMark() {
-  document.getElementById('comp-hand').innerHTML = `
-  <div class = "dog-card">
-  <img src="./Images/questionMark.png" alt = "questionMarkImg"/>
-  </div>
-  `
-}
+  function displayQuestionMark() {
+    document.getElementById('comp-hand').innerHTML = `
+    <div class = "question-card">
+    <img src="./Images/questionMark.png" alt = "questionMarkImg"/>
+    </div>
+    `
+  }
 
 
   function populateCompHand(pickedCompCard) {
