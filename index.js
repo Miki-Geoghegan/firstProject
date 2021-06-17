@@ -20,59 +20,45 @@ const cards = [
     { name: 'Husky', img: 'husky.jpeg', playfulness: '10', energy: '10', trainability: '3', intelligence: '5', size: '8', dogFriendly: '4', barkTendancy: '10'},
     { name: 'Shichon', img: 'shichon.jpg', playfulness: '8', energy: '5', trainability: '4', intelligence: '6', size: '5', dogFriendly: '7', barkTendancy: '5'},
   ];
-
   
-  // linking with the classes in memory.js file
-
+  
   const topTrumpsGame = new TopTrumpsGame(cards);
   const currentHand = new CurrentHand();
-
-  // function choose a characteristic with a click (see ul onclick)
-  // function to add blue to the clicked target when an event (a click) occurs
-
+  
+  
   function dogCharacteristicClicked(event) {
     console.log("a pickedPlayerCard ability has been clicked", event.target.textContent);
     event.target.style.color = 'white';
-
-  // calling the populateCompHand (current card) function when characteristic clicked and filling this.pickedCompCard with this card
-  // will only occur once clicked, previously will be ?
- 
-      populateCompHand(currentHand.pickedCompCard)
-
-      // setting a timer for the click event
-          setTimeout(function() {
-      
-      // making the picked characteristic in memory.js the class name of the target of the click (characteristic clicked i.e. 'playfulness')
-          currentHand.pickedCharacteristic = event.target.className
-      
-      // calling the compareCards function in memory.js with shuffledCardsPlayer and Comp so that it can access the shuffled cards packs
-          currentHand.compareCards(topTrumpsGame.shuffledCardsPlayer, topTrumpsGame.shuffledCardsComp)
-      
-          if (topTrumpsGame.shuffledCardsPlayer.length > 0) {
-
-        // once timeout, pick another player card with pickPlayerCard function (i[0]), need to access shuffledCardsPlayer
-        currentHand.pickPlayerCard(topTrumpsGame.shuffledCardsPlayer)
-       
-        // call populate the current player hand function and pass it to pickedPlayCard
-        populatePlayerHand(currentHand.pickedPlayCard);
     
-        // once timer runs out, questionmark with flip back around
+    populateCompHand(currentHand.pickedCompCard)
+    
+    setTimeout(function() {
+      currentHand.pickedCharacteristic = event.target.className
+      
+      currentHand.compareCards(topTrumpsGame.shuffledCardsPlayer, topTrumpsGame.shuffledCardsComp)
+      
+      if (topTrumpsGame.shuffledCardsPlayer.length > 0) {
+      
+        currentHand.pickPlayerCard(topTrumpsGame.shuffledCardsPlayer)
+        
+        populatePlayerHand(currentHand.pickedPlayCard);
+        
         currentHand.pickCompCard(topTrumpsGame.shuffledCardsComp)
         displayQuestionMark();
-    
+        
         document.getElementById('user-cards').innerHTML = topTrumpsGame.shuffledCardsPlayer.length;
         document.getElementById('computer-cards').innerHTML = topTrumpsGame.shuffledCardsComp.length;
         document.getElementById('tied-cards').innerHTML = currentHand.tiedCards.length;
-    
-      if (topTrumpsGame.endGame()) {
+        
+        if (topTrumpsGame.endGame()) {
           document.getElementById('player-hand').innerHTML = ``
           document.getElementById('comp-hand').innerHTML = ``;
-          document.getElementById('hand').innerHTML = `<h3 class = "winner">YOU WON THE GAME</h3>`
+          document.getElementById('hand').innerHTML = `<h3 class = "winner">YOU WON</h3>`
           document.getElementById('play-title').innerHTML = `<button id = "reset-button">Reset</button>`;
           document.getElementById('card-titles').innerHTML = ``
           document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
-        }
-    
+      }
+  
       } else {
         document.getElementById('comp-hand').innerHTML = `<h3 class = "game-over">GAME OVER</h3>`
         document.getElementById('player-hand').innerHTML = ``;
@@ -80,36 +66,25 @@ const cards = [
         document.getElementById('card-titles').innerHTML = ``
         document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
 
-      }}, 3000)
-      
-    }
+    }}, 3000) 
+  }
 
-
-
-  // calling classes from previous page to start when page is loaded 
 
   window.addEventListener('load', (event) => {
     console.log('TopTrumpsGame is loaded');
 
-    // will first shuffle then split the them into two as per functions on memory page
     topTrumpsGame.shuffleCards()
     topTrumpsGame.splitCards()
-
-    // calling pickPlayerCard function below (will take the first card from shuffledplayers deck) and same for comp
-    // needs to be able to access shuffledCardsPlayer?
 
     currentHand.pickPlayerCard(topTrumpsGame.shuffledCardsPlayer);
     currentHand.pickCompCard(topTrumpsGame.shuffledCardsComp);
    
-   // calling function populatePlayer below and linking this so current pickedPlayCard in class CurrentHand in memory.js is the card that populates the HTML
 
     populatePlayerHand(currentHand.pickedPlayCard)
     displayQuestionMark()
 
   });
 
-
-  // function to populatePlayerHand with a specific card from class pickedPlayerCard (first card of shuffled player deck)
 
   function populatePlayerHand(pickedPlayerCard) {
     console.log(pickedPlayerCard)
@@ -130,7 +105,6 @@ const cards = [
  `
   }
 
-  // Start by displaying questionmark before clicked and comp hand is shown
 
   function displayQuestionMark() {
     document.getElementById('comp-hand').innerHTML = `
