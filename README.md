@@ -3,7 +3,6 @@ This project uses JS, HTML and CSS to code a card game replication of the classi
 
 
 
-
 Getting Started
 In order to start the game the primary focus was on ensuring JS logic was sound. To achieve this it was necessary to create a number of classes, methods and functions, which were then used in event listeners. On-click events were also created, allowing the user to interact with the game.
 
