@@ -4,11 +4,8 @@
 class TopTrumpsGame {
     constructor(cards) {
       this.cards = cards;
-      this.shuffleCardsHalf = [];
       this.shuffledCardsPlayer = [];
       this.shuffledCardsComp = [];
-      this.playerScore = 0;
-      this.compScore = 0;
     }
 
   
@@ -28,9 +25,9 @@ class TopTrumpsGame {
     // method split pack in two and give one to player 1, one to comp
 
   splitCards() {
-    this.shuffledCardsHalf = Math.ceil(this.cards.length / 2);
-    this.shuffledCardsPlayer = this.cards.slice(0, this.shuffledCardsHalf);
-    this.shuffledCardsComp = this.cards.slice(this.shuffledCardsHalf, this.cards.length);
+    let midPoint = Math.ceil(this.cards.length / 2);
+    this.shuffledCardsPlayer = this.cards.slice(0, midPoint);
+    this.shuffledCardsComp = this.cards.slice(midPoint, this.cards.length);
   }
 
   
@@ -47,7 +44,7 @@ class TopTrumpsGame {
 // class to hold current card for player & comp as well as the characteristic picked by player (ready to compare)
 
 class CurrentHand {
-  constructor(hand) {
+  constructor() {
     this.pickedPlayCard = 0;
     this.pickedCompCard = 0;
     this.pickedCharacteristic = 0;
@@ -71,9 +68,8 @@ class CurrentHand {
   // need to make the string picked characteristic into number, to compare the numbers
 
   compareCards(shuffledCardsPlayer, shuffledCardsComp) {
-    let value = this.pickedCharacteristic;
-    let playerNumber = parseInt(this.pickedPlayCard[value]);
-    let computerNumber = parseInt(this.pickedCompCard[value]);
+    let playerNumber = parseInt(this.pickedPlayCard[this.pickedCharacteristic]);
+    let computerNumber = parseInt(this.pickedCompCard[this.pickedCharacteristic]);
 
 // the played card needs to be removed from the front of it's current shuffled array
 // it then will either be pushed to the players shuffled array, the computer's or the tied new array
