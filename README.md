@@ -25,10 +25,12 @@ DOM manipulation was particularly important at the end of the game, when the scr
 
 
 Final Stages
+
 Finally, the CSS was created, in order to present an asthetically pleasing game. Gradients were used on backgrounds and on font and elements were structured on the page using flexbox. Small changes to ensure clarity were added, including a hover-over function on the card characterists and curser to pointer.
 
 
 
 
 Running the tests
+
 Tests were run throughout every stage to ensure that the code was working correctly and bugs were fixed before moving forward.
