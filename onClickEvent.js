@@ -6,44 +6,56 @@
     console.log("a pickedPlayerCard ability has been clicked", event.target.textContent);
     event.target.style.color = 'white';
     
-    populateCompHand(currentHand.pickedCompCard)
+    populateCompHand(currentHand.pickedCompCard);
     
     setTimeout(function() {
-      currentHand.pickedCharacteristic = event.target.className
+      currentHand.pickedCharacteristic = event.target.className;
       
-      currentHand.compareCards(topTrumpsGame.shuffledCardsPlayer, topTrumpsGame.shuffledCardsComp)
+      currentHand.compareCards(topTrumpsGame.shuffledCardsPlayer, topTrumpsGame.shuffledCardsComp);
       
       if (topTrumpsGame.shuffledCardsPlayer.length > 0) {
       
-        currentHand.pickPlayerCard(topTrumpsGame.shuffledCardsPlayer)
+        currentHand.pickPlayerCard(topTrumpsGame.shuffledCardsPlayer);
         
         populatePlayerHand(currentHand.pickedPlayCard);
         
-        currentHand.pickCompCard(topTrumpsGame.shuffledCardsComp)
+        currentHand.pickCompCard(topTrumpsGame.shuffledCardsComp);
+        
         displayQuestionMark();
         
         document.getElementById('user-cards').innerHTML = topTrumpsGame.shuffledCardsPlayer.length;
         document.getElementById('computer-cards').innerHTML = topTrumpsGame.shuffledCardsComp.length;
         document.getElementById('tied-cards').innerHTML = currentHand.tiedCards.length;
         
-        if (topTrumpsGame.endGame()) {
-          document.getElementById('player-hand').innerHTML = ``
-          document.getElementById('comp-hand').innerHTML = ``;
-          document.getElementById('hand').innerHTML = `<h3 class = "winner">YOU WON</h3>`
-          document.getElementById('play-title').innerHTML = `<button id = "reset-button">Reset</button>`;
-          document.getElementById('card-titles').innerHTML = ``
-          document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
+        if (topTrumpsGame.endGame(currentHand.tiedCards) === true) {
+          displayResetButton();
+          document.getElementById('hand').innerHTML = `<h3 class = "winner">YOU WON</h3>`;
+
+      } else if (topTrumpsGame.endGame(currentHand.tiedCards) === -2) {
+          displayResetButton();
       }
   
-      } else {
-        document.getElementById('comp-hand').innerHTML = `<h3 class = "game-over">GAME OVER</h3>`
-        document.getElementById('player-hand').innerHTML = ``;
-        document.getElementById('play-title').innerHTML = `<button id = "reset-button">Reset</button>`;
-        document.getElementById('card-titles').innerHTML = ``
-        document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
-
-    }}, 3000) 
+      } else if (topTrumpsGame.endGame(currentHand.tiedCards) === false) {
+          displayResetButton();
+          document.getElementById('comp-hand').innerHTML = `<h3 class = "game-over">GAME OVER</h3>`;
+        
+    } else if (topTrumpsGame.endGame(currentHand.tiedCards) === -2) {
+        displayResetButton();
+ }
+  }, 3000) 
   }
+
+  function displayResetButton() {
+    document.getElementById('player-hand').innerHTML = ``;
+    document.getElementById('comp-hand').innerHTML = ``;
+    document.getElementById('play-title').innerHTML = `<button id = "reset-button">Reset</button>`;
+    document.getElementById('card-titles').innerHTML = ``;
+    document.getElementById('reset-button').addEventListener("click", () => window.location.reload());
+ 
+  }
+
+
+
 
   window.addEventListener('load', (event) => {
     console.log('TopTrumpsGame is loaded');

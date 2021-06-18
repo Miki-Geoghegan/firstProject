@@ -21,6 +21,3 @@ const cards = [
     { name: 'Shichon', img: 'shichon.jpg', playfulness: '8', energy: '5', trainability: '4', intelligence: '6', size: '5', dogFriendly: '7', barkTendancy: '5'},
   ];
   
-
-
-  

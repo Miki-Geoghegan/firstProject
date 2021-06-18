@@ -23,11 +23,20 @@ class TopTrumpsGame {
   }
 
   
-  endGame() {
+  endGame(tiedCards) {
     if (this.shuffledCardsPlayer.length === this.cards.length) {
       return true;
+    } else if (this.shuffledCardsComp.length === this.cards.length) {
+      return false
+    }
+     else if (tiedCards.length >= 2 && this.shuffledCardsComp.length === 0) {
+      alert (`Computer cards are empty, the player wins! `)
+      return -2
+    } else if (tiedCards.length >= 2 && this.shuffledCardsPlayer.length === 0) {
+        alert (`Player cards are empty, the computer wins!`)
+        return -2
     } else {
-      return false;
+      return -1;
     }
   }
 }
